@@ -1,43 +1,40 @@
-# Getting Started with Create React App
+# Decentralized Banking dApp
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Required
+Node version: 14.19.3\
+NPM version: 6.14.17
 
-In the project directory, you can run:
+## Steps to run
 
-### `npm start`
+### 1. Download and Setup [Ganache](https://trufflesuite.com/ganache/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ganache helps you run development Ethereum blockchains with multiple wallets containing fake Ether.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Start a new Ethereum chain on Ganache with:
 
-### `npm test`
+`hostname: 127.0.0.1` \
+`port number: 8545` \
+`network ID: 1337`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Installing packages
 
-### `npm run build`
+Open the project directory and run `npm install` which will install the packages listed in `package.json`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Compiling Smart contracts
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[truffle](https://trufflesuite.com/truffle/) development environment is installed in the previous step.\
+The smart contracts present in `src/contracts` directory can be compiled using the `truffle compile` command.\
+After compilation, the [abis](https://www.quicknode.com/guides/solidity/what-is-an-abi) are stored in the `src/abis` directory.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Deploying Contracts
+Once the contracts are compiled, use the `truffle migrate` command to deploy the contracts to the Ethereum test chain earlier created on Ganache.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 5. Testing contracts
+Tests for the smart contracts are present in the `test` directory.\
+Run the `truffle test` command to run these tests on the deployed smart contracts and view the results.\
+These tests only check the basic functionality and sanity of the contracts.
 
 ## Learn More
 
